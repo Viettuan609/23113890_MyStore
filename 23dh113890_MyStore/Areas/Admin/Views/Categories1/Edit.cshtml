@@ -5,20 +5,23 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2 class="bg-success">CẬP NHẬT DANH MỤC</h2>
+<h2 class="bg-success">CẬP NHẬT SẢN PHẨM</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
-<div class="form-horizontal for">
-    <hr />
+<div class="form-horizontal">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.CategoryID)
 
     @*Nhúng Partial Form vào view*@
-    @Html.Partial("PVCreateEditCategory", Model)
+    @Html.Partial("PVCreateViewProduct", Model)
 </div>
+}
+
+@section Script {
+    @Scripts.Render("-/bundles/jqueryval")
 }
 
 
